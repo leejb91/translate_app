@@ -2,8 +2,10 @@ var mongoose = require('mongoose'),
     debug    = require('debug')('app:models');
 
 var userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  name:  { type: String, required: true }
+  email:     { type: String, required: true, unique: true },
+  name:      { type: String, required: true },
+  languages: [{ type: String }],
+  posts:     [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
 });
 
 // Add bcrypt hashing to model (works on a password field)!
