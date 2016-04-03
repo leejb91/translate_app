@@ -10,44 +10,43 @@
 .x-ng-cloak {
   display: none !important;
 }
+h1 {
+  margin: 0;
+}
 
 html {
   position: relative;
   min-height: 100%;
 }
 
+#welcome-div {
+  background-image: url("http://www.glossa-group.com/fileadmin/background/background11.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow: scroll;
+  padding-top: 50px;
+  padding-bottom: 50px;
+ }
+
 body {
-  font-family: sans-serif;
+  font-family: "Philosopher", sans-serif;
   font-size: 18px;
-  margin: auto 1rem 60px;
-  padding-top: 70px;
+  /*margin: auto 1rem 60px;*/
+  /*padding-top: 70px;*/
 }
 
 a {
   cursor: pointer;
 }
 
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
-}
-
-footer {
-  position: absolute;
-  bottom: 25px;
-  left:   5%;
-  width:  90%;
-  font-size: 1rem;
-  height: 60px;
-  z-index: -1; /* when using the dev console the footer can overlap content */
-}
-
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  max-width: 950px;
+  /*max-width: 950px;*/
 }
 
 header,
@@ -61,7 +60,7 @@ header {
 }
 
 .navbar-brand {
-  padding: 5px 0;
+  /*padding: 5px 0;*/
 }
 
 form {
@@ -73,3 +72,36 @@ form {
 #exampleInputEmail1.red-border {
   border: 2px solid red;
 }
+
+#welcome-title-div {
+  height: 400px;
+}
+
+#welcome-title {
+  font-family: "Philosopher", sans-serif;
+  font-size: 100px;
+  margin-top: 0 !important;
+  padding-top: 80px;
+}
+
+#indexNavbar {
+  background: rgba(77,77,77,0.9);
+  position: fixed;
+  top: 0;
+}
+
+#about {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 70%;
+  margin: 20px auto;
+  background-color: rgba(248,248,255,0.8);
+}
+
+.sign-in-form,
+.sign-up-form,
+.profile {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
