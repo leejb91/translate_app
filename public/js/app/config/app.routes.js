@@ -40,9 +40,9 @@
   // ($scope or vm) anywhere in the app. If you add something to
   // $rootScope, it's like adding it to EVERY "vm" (view-model, ie
   // template-controller binding), directive, filter, etc. in the app.
-  authorizeRoutes.$inject = ["$state", "authService", "$rootScope"];
+  authorizeRoutes.$inject = ["$log", "$state", "authService", "$rootScope"];
 
-  function authorizeRoutes($state, authService, $rootScope) {
+  function authorizeRoutes($log, $state, authService, $rootScope) {
 
     // $on is the Angular event listener: we are telling Angular to
     // listen to any $stateChangeStart events triggered in our app!
