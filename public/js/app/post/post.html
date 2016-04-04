@@ -1,17 +1,29 @@
 <div id="posts-page">
 
+  <h1>T R A N S L A T E M E</h1>
   <div id="post-container">
-    <div class="card transparent post-card" ng-repeat="post in vm.posts">
-      <ul>
-        <li>Body: {{ post.body }}</li>
-        <li>Author: {{ post.author }}</li>
-        <li>Language: {{ post.language }}</li>
-        <li>Skill Level: {{ post.skillLevel }}</li>
-        <li>Date: {{ post.createdAt }}</li>
-      </ul>
-      <div ng-click="vm.deletePost(post._id);" class="delete-post-button">X</div>
+    <div ng-repeat="post in vm.posts">
+      <div class="post-card card" ng-click="vm.showPost(post);">
+        <ul>
+          <li>Body: {{ post.body }}</li>
+          <li>Submitted by: {{ post.author }}</li>
+          <li>Language: {{ post.language }}</li>
+          <li>Level: {{ post.skillLevel }}</li>
+          <li>Date: {{ post.createdAt }}</li>
+        </ul>
+        <div ng-click="vm.deletePost(post);" class="delete-post-button">X</div>
+      </div>
     </div>
   </div>
+
+  <ul>
+    <li>Body: {{ vm.selectedPost.body }}</li>
+    <li>Submitted by: {{ vm.selectedPost.author }}</li>
+    <li>Language: {{ vm.selectedPost.language }}</li>
+    <li>Level: {{ vm.selectedPost.skillLevel }}</li>
+    <li>Date: {{ vm.selectedPost.createdAt }}</li>
+  </ul>
+  <button type="button" ng-click="vm.getPosts();">See All</button>
 
   <h1>Create a Post</h1>
 
