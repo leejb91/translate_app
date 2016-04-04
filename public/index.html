@@ -4,8 +4,8 @@
   <title>H O N E</title>
   <meta charset="utf-8">
 
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link href='https://fonts.googleapis.com/css?family=Philosopher:400,700' rel='stylesheet' type='text/css'>
 
   <script src="/js/vendor/jwt-decode.2.0.1.js"></script>
@@ -23,6 +23,7 @@
         <li><a ui-sref="welcome"><img style="vertical-align: middle" src="../../../images/h.png" alt="" height="50px" width="58px"></a></li>
       </ul>
       <ul id="nav-mobile" class="right">
+        <li><a ng-show="vm.authService.isLoggedIn();" ui-sref="post">Translate</a></li>
         <li><a ng-show="vm.authService.isLoggedIn();" ui-sref="profile">Profile</a></li>
         <li><a ng-hide="vm.authService.isLoggedIn();" ui-sref="signin">Sign In</a></li>
         <li><a ng-click="vm.logOut();" ng-show="vm.authService.isLoggedIn()">Sign Out</a></li>
@@ -39,6 +40,8 @@
   </div> <!-- div.container-fluid -->
 
 
+  <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script src="/js/app/app.module.js"></script>
   <script src="/js/app/config/app.debug.js"></script>
   <script src="/js/app/config/app.httpInterceptors.js"></script>
