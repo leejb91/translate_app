@@ -1,0 +1,38 @@
+<div id="posts-page">
+
+  <div id="post-container">
+    <div class="card transparent post-card" ng-repeat="post in vm.posts">
+      <ul>
+        <li>Body: {{ post.body }}</li>
+        <li>Author: {{ post.author }}</li>
+        <li>Language: {{ post.language }}</li>
+        <li>Skill Level: {{ post.skillLevel }}</li>
+        <li>Date: {{ post.createdAt }}</li>
+      </ul>
+      <div ng-click="vm.deletePost(post._id);" class="delete-post-button">X</div>
+    </div>
+  </div>
+
+  <h1>Create a Post</h1>
+
+  <form ng-submit="vm.createPost();">
+    <div>
+      <label for="postBody">Post</label>
+      <input ng-model="vm.newPost.body" type="text" class="form-control" id="postBody">
+    </div>
+    <div>
+      <label for="postLanguage">Language</label>
+      <input ng-model="vm.newPost.language" type="text" class="form-control" id="postLanguage">
+    </div>
+    <div>
+      <label for="postSkillLevel">Skill Level</label>
+      <select ng-model="vm.newPost.skillLevel" class="form-control" id="postSkillLevel">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default">Submit New Post</button>
+  </form>
+
+</div>

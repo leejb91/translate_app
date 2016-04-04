@@ -17,20 +17,8 @@ h1 {
 html {
   position: relative;
   min-height: 100%;
+  min-width: 800px;
 }
-
-#welcome-div {
-  background-image: url("http://www.glossa-group.com/fileadmin/background/background11.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
-  background-attachment: fixed;
-  overflow: scroll;
-  padding-top: 50px;
-  padding-bottom: 50px;
- }
 
 body {
   font-family: "Philosopher", sans-serif;
@@ -58,6 +46,19 @@ footer {
 header {
   text-transform: uppercase;
 }
+
+#welcome-div {
+  background-image: url("http://www.glossa-group.com/fileadmin/background/background11.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  /*background-attachment: fixed;*/
+  /*overflow: scroll;*/
+  padding-top: 50px;
+  padding-bottom: 50px;
+ }
 
 .navbar-brand {
   /*padding: 5px 0;*/
@@ -90,18 +91,47 @@ form {
   top: 0;
 }
 
-#about {
+/*#about {
   padding-top: 10px;
   padding-bottom: 10px;
   width: 70%;
   margin: 20px auto;
   background-color: rgba(248,248,255,0.8);
 }
-
+*/
 .sign-in-form,
 .sign-up-form,
-.profile {
-  padding-top: 50px;
+.profile,
+#posts-page {
+  padding-top: 80px;
   padding-bottom: 50px;
 }
 
+#post-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+}
+
+.post-card {
+  height: 300px;
+  width: 300px;
+  margin: 15px !important;
+  padding: 10px;
+  position: absolute;
+}
+
+.delete-post-button {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: red;
+  top: 0;
+  right: 0;
+  margin: -12px;
+  z-index: -10;
+}
