@@ -25,6 +25,13 @@
         controller:   "ProfileController",
         controllerAs: "vm",
         authorized:   true
+      })
+      .state("post", {
+        url:          "/posts",
+        templateUrl:  "/js/app/post/post.html",
+        controller:   "PostController",
+        controllerAs: "vm",
+        authorized:   true
       });
 
     $urlRouterProvider.otherwise("/");
