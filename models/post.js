@@ -13,9 +13,9 @@ var postSchema = new mongoose.Schema({
   body:         { type: String, required: true },
   createdAt:    { type: Date, default: Date.now },
   language:     String,
-  translations: [translationSchema],
   answered:     { type: Boolean, default: false },
-  skillLevel:   { type: String, enum: ["beginner", "intermediate", "advanced"], default: "beginner" }
+  skillLevel:   { type: String, enum: ["beginner", "intermediate", "advanced"], default: "beginner" },
+  translations: [translationSchema],
 });
 
 var Post = mongoose.model("Post", postSchema);
