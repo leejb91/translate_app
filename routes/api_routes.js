@@ -17,8 +17,9 @@ router.post('/token', token.create);
 router.post('/users/me/token', token.authenticate, token.refresh);
 
 // posts resource paths:
-router.get(   '/posts',    postsCtrl.index);
-router.post(  '/posts',    postsCtrl.create);
-router.delete('/posts/id', postsCtrl.delete);
+router.get(   '/posts',     postsCtrl.index);
+router.get(   '/posts/:id', postsCtrl.show);
+router.post(  '/posts',     postsCtrl.create);
+router.delete('/posts/:id', postsCtrl.destroy);
 
 module.exports = router;
