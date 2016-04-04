@@ -23,8 +23,6 @@ html {
 body {
   font-family: "Philosopher", sans-serif;
   font-size: 18px;
-  /*margin: auto 1rem 60px;*/
-  /*padding-top: 70px;*/
 }
 
 a {
@@ -34,7 +32,6 @@ a {
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  /*max-width: 950px;*/
 }
 
 header,
@@ -54,14 +51,8 @@ header {
   background-position: center;
   width: 100%;
   height: 100vh;
-  /*background-attachment: fixed;*/
-  /*overflow: scroll;*/
   padding-top: 50px;
   padding-bottom: 50px;
- }
-
-.navbar-brand {
-  /*padding: 5px 0;*/
 }
 
 form {
@@ -86,9 +77,10 @@ form {
 }
 
 #indexNavbar {
-  background: rgba(77,77,77,0.9);
+  background: #4d4d4d;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 /*#about {
@@ -102,7 +94,8 @@ form {
 .sign-in-form,
 .sign-up-form,
 .profile,
-#posts-page {
+#posts-page,
+#apost-page {
   padding-top: 80px;
   padding-bottom: 50px;
 }
@@ -121,7 +114,6 @@ form {
   width: 300px;
   margin: 15px !important;
   padding: 10px;
-  position: absolute;
 }
 
 .delete-post-button {
@@ -133,5 +125,4 @@ form {
   top: 0;
   right: 0;
   margin: -12px;
-  z-index: -10;
 }
