@@ -9,23 +9,30 @@
 
   function PostController($log, authService, $http, $state) {
     $log.info("PostController loaded");
+    $('select').material_select();
     var vm = this;
     vm.getPosts     = getPosts;
     vm.createPost   = createPost;
     vm.deletePost   = deletePost;
     vm.showPost     = showPost;
-    // vm.selectedPost = {};
+    vm.selectedPost = {};
+    vm.formOpen     = false;
 
     vm.posts = [];
+    vm.skillLevels = ["beginner", "intermediate", "advanced"];
+    vm.newPost = {};
+    vm.newPost.skillLevel = "intermediate";
 
     vm.getPosts();
 
     function createPost() {
       var newPost = {
-        body:     vm.newPost.body,
-        language: vm.newPost.language,
-        author:   authService.currentUser(),
+        body:       vm.newPost.body,
+        language:   vm.newPost.language,
+        skillLevel: vm.newPost.skillLevel,
+        author:     authService.currentUser(),
       };
+      $log.info(newPost);
       $http({
         method: "POST",
         url:    "/api/posts",
@@ -33,6 +40,7 @@
       })
       .then(function(res) {
         getPosts();
+        vm.formOpen = !vm.formOpen;
       },
       function(err) {
         $log.debug("Error: ", err);
@@ -70,7 +78,6 @@
 
     function showPost(post) {
       vm.selectedPost = post;
-      $log.info("the selected post", vm.selectedPost);
       vm.posts = [];
     }
 
