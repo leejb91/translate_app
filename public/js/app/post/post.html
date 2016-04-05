@@ -1,7 +1,10 @@
 <div id="posts-page">
 
   <h1>T R A N S L A T E M E</h1>
-  <div id="post-container">
+
+  <button class="btn btn-default" ng-click="vm.formOpen = !vm.formOpen">Submit a Post</button>
+
+  <div ng-hide="vm.formOpen" id="post-container">
     <div ng-repeat="post in vm.posts">
       <div class="post-card card" ng-click="vm.showPost(post);">
         <ul>
@@ -16,35 +19,41 @@
     </div>
   </div>
 
-  <ul>
-    <li>Body: {{ vm.selectedPost.body }}</li>
-    <li>Submitted by: {{ vm.selectedPost.author }}</li>
-    <li>Language: {{ vm.selectedPost.language }}</li>
-    <li>Level: {{ vm.selectedPost.skillLevel }}</li>
-    <li>Date: {{ vm.selectedPost.createdAt }}</li>
-  </ul>
-  <button type="button" ng-click="vm.getPosts();">See All</button>
 
-  <h1>Create a Post</h1>
+  <div ng-show="vm.selectedPost">
+    <ul>
+      <li>Body: {{ vm.selectedPost.body }}</li>
+      <li>Submitted by: {{ vm.selectedPost.author }}</li>
+      <li>Language: {{ vm.selectedPost.language }}</li>
+      <li>Level: {{ vm.selectedPost.skillLevel }}</li>
+      <li>Date: {{ vm.selectedPost.createdAt }}</li>
+    </ul>
+    <button class="btn btn-default" ng-click="vm.getPosts();">See All</button>
+  </div>
 
-  <form ng-submit="vm.createPost();">
-    <div>
-      <label for="postBody">Post</label>
-      <input ng-model="vm.newPost.body" type="text" class="form-control" id="postBody">
-    </div>
-    <div>
-      <label for="postLanguage">Language</label>
-      <input ng-model="vm.newPost.language" type="text" class="form-control" id="postLanguage">
-    </div>
-    <div>
-      <label for="postSkillLevel">Skill Level</label>
-      <select ng-model="vm.newPost.skillLevel" class="form-control" id="postSkillLevel">
-        <option value="Beginner">Beginner</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-default">Submit New Post</button>
-  </form>
+  <div ng-show="vm.formOpen">
+    <h1>Create a Post</h1>
 
+    <form ng-submit="vm.createPost();">
+      <div>
+        <label for="postBody">Post</label>
+        <input ng-model="vm.newPost.body" type="text" class="form-control" id="postBody">
+      </div>
+      <div>
+        <label for="postLanguage">Language</label>
+        <input ng-model="vm.newPost.language" type="text" class="form-control" id="postLanguage">
+      </div>
+      <div>
+        <label for="postSkillLevel">Skill Level</label>
+        <select ng-model="vm.newPost.skillLevel" class="form-control">
+          <option value="n/a">Choose your skill level</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+      {{vm.newPost | json}}
+      <button type="submit" class="btn btn-default">Submit New Post</button>
+    </form>
+  </div>
 </div>
