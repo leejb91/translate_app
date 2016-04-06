@@ -1,18 +1,19 @@
 <!-- single post revealed when clicked -->
 <h2>T R A N S L A T E T H I S</h2>
 <md-card id="single-post-container">
+    <div class="single-post-language {{ vm.selectedPost.language }}">{{ vm.selectedPost.language }}</div>
   <ul>
-    <div class="single-post-language">{{ vm.selectedPost.language }}</div>
     <li>{{ vm.selectedPost.body }}</li>
-    <li>Submitted by: {{ vm.selectedPost.author.name }}</li>
+    <li class="submittedby-p">Submitted by: {{ vm.selectedPost.author.name }} about {{ vm.formatDate(vm.selectedPost.createdAt) }}</li>
     <li>Level: {{ vm.selectedPost.skillLevel }}</li>
-    <li>Date: {{ vm.formatDate(vm.selectedPost.createdAt) }}</li>
   </ul>
 
-  <div ng-repeat="translation in vm.translations">
-    {{translation.body}}
-    {{translation.author.name}}
-    {{translation.createdAt}}
+  <h4>T R A N S L A T I O N S</h4>
+  <div>
+    <ul class="translation-ul" ng-repeat="translation in vm.translations">
+      <li class="translation-li-body">{{translation.body}}</li>
+      <li class="submittedby-p">Submitted by: {{ vm.selectedPost.author.name }} about {{ vm.formatDate(vm.selectedPost.createdAt) }}</li>
+    </ul>
   </div>
 
     <form ng-submit="vm.createTranslate();">
@@ -22,6 +23,6 @@
           <input ng-model="vm.newTranslate.body" type="text" class="form-control">
         </md-input-container>
       </div>
-      <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Submit New Post</button>
+      <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Translate</button>
     </form>
 </md-card>
