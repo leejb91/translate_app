@@ -1,0 +1,43 @@
+<div ng-click="vm.selectPost = {}">
+  <h1>Create a Post</h1>
+
+  <md-card id="create-post-card">
+    <md-card-content>
+    <form ng-submit="vm.createPost();">
+      <div>
+        <md-input-container class="input-container">
+          <label>Post</label>
+          <input ng-model="vm.newPost.body" type="text" class="form-control">
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container class="input-container">
+          <label>Language</label>
+          <md-select ng-model="vm.newPost.language">
+            <md-option value="EN">English</md-option>
+            <md-option value="KR">Korean</md-option>
+            <md-option value="SP">Spanish</md-option>
+            <md-option value="JP">Japanese</md-option>
+            <md-option value="DU">Dutch</md-option>
+            <md-option value="GR">German</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container class="input-container">
+          <label>Skill Level</label>
+          <md-select ng-model="vm.newPost.skillLevel" placeholder="Choose your skill level">
+            <md-option value="beginner">Beginner</md-option>
+            <md-option value="intermediate">Intermediate</md-option>
+            <md-option value="advanced">Advanced</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Submit New Post</button>
+    </form>
+    </md-card-content>
+  </md-card>
+</div>

@@ -9,18 +9,12 @@ module.exports = {
 };
 
 function index(req, res) {
-  var promise = Post.find(function(err, posts) {
-    if (err) res.json({ message: "No posts" });
-    posts.forEach(function(post) {
-      User.findById(post.author, function(err, user) {
-        post.author = user.name;
-      })
-    })
-    return promise;
-  })
-  .then(function(posts) {
-    res.json({posts: posts})
-  })
+  Post.find({}).populate("author").exec()
+    .then(function(posts) {
+      res.json(posts);
+    }, function(err) {
+      if (err) res.json({ message: "No posts" });
+    });
 }
 
 function show(req, res) {
