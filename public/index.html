@@ -4,32 +4,36 @@
   <title>H O N E</title>
   <meta charset="utf-8">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link href='https://fonts.googleapis.com/css?family=Philosopher:400,700' rel='stylesheet' type='text/css'>
 
   <script src="/js/vendor/jwt-decode.2.0.1.js"></script>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="http://momentjs.com/downloads/moment.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
 
 </head>
 <body>
-
-  <nav id="indexNavbar">
-    <div class="nav-wrapper" ng-controller="NavbarController as vm">
-      <ul>
-        <li><a ui-sref="welcome"><img style="vertical-align: middle" src="../../../images/h.png" alt="" height="50px" width="58px"></a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-        <li><a ng-show="vm.authService.isLoggedIn();" ui-sref="post">Translate</a></li>
-        <li><a ng-show="vm.authService.isLoggedIn();" ui-sref="profile">Profile</a></li>
-        <li><a ng-hide="vm.authService.isLoggedIn();" ui-sref="signin">Sign In</a></li>
-        <li><a ng-click="vm.logOut();" ng-show="vm.authService.isLoggedIn()">Sign Out</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div layout="column" id="indexNavbar" ng-controller="NavbarController as vm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>H O N E</span>
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+        <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="posts.myposts">My Posts</md-button>
+        <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="posts">Translate</md-button>
+        <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="profile">Profile</md-button>
+        <md-button ng-show="vm.authService.isLoggedIn();" ng-click="vm.logOut();">Log Out</md-button>
+        <md-button ng-hide="vm.authService.isLoggedIn();" ui-sref="signin">Log In</md-button>
+      </div>
+    </md-toolbar>
+  </div>
 
   <div class="container-fluid">
 
@@ -37,11 +41,9 @@
     <main class="content" ui-view>
       <!-- ui-router (aka ui.router) inserts templates here -->
     </main>
-  </div> <!-- div.container-fluid -->
+  </div>
 
-
-  <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
   <script src="/js/app/app.module.js"></script>
   <script src="/js/app/config/app.debug.js"></script>
   <script src="/js/app/config/app.httpInterceptors.js"></script>
