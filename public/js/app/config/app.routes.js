@@ -26,12 +26,24 @@
         controllerAs: "vm",
         authorized:   true
       })
-      .state("post", {
+      .state("posts", {
         url:          "/posts",
         templateUrl:  "/js/app/post/post.html",
         controller:   "PostController",
         controllerAs: "vm",
         authorized:   true
+      })
+      .state("posts.translation", {
+        url:          "/translation",
+        templateUrl: "/js/app/post/translation.html"
+      })
+      .state("posts.submit", {
+        url:          "/submit",
+        templateUrl: "/js/app/post/submit.html"
+      })
+      .state("posts.myposts", {
+        url:          "/myposts",
+        templateUrl: "/js/app/post/myposts.html"
       });
 
     $urlRouterProvider.otherwise("/");

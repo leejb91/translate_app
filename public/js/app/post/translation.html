@@ -1,0 +1,27 @@
+<!-- single post revealed when clicked -->
+<h2>T R A N S L A T E T H I S</h2>
+<md-card id="single-post-container">
+  <ul>
+    <div class="single-post-language">{{ vm.selectedPost.language }}</div>
+    <li>{{ vm.selectedPost.body }}</li>
+    <li>Submitted by: {{ vm.selectedPost.author.name }}</li>
+    <li>Level: {{ vm.selectedPost.skillLevel }}</li>
+    <li>Date: {{ vm.formatDate(vm.selectedPost.createdAt) }}</li>
+  </ul>
+
+  <div ng-repeat="translation in vm.translations">
+    {{translation.body}}
+    {{translation.author.name}}
+    {{translation.createdAt}}
+  </div>
+
+    <form ng-submit="vm.createTranslate();">
+      <div>
+        <md-input-container class="input-container">
+          <label>Translation</label>
+          <input ng-model="vm.newTranslate.body" type="text" class="form-control">
+        </md-input-container>
+      </div>
+      <md-button class="md-raised md-primary md-button md-ink-ripple" type="submit">Submit New Post</button>
+    </form>
+</md-card>
