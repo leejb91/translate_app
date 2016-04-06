@@ -16,6 +16,7 @@
     vm.selectedPost       = {};
     vm.formOpen           = false;
     vm.posts              = [];
+    vm.myPosts            = [];
     vm.newPost            = {};
     vm.newPost.skillLevel = "";
     vm.skillLevels        = ["beginner", "intermediate", "advanced"];
@@ -48,7 +49,7 @@
       .then(function(res) {
         $log.info(res);
         vm.newTranslate = "";
-        getTranslations();
+        vm.getTranslations();
       });
     }
 
@@ -97,7 +98,9 @@
       })
       .then(function(res) {
         vm.posts = res.data.reverse();
-        $log.info(vm.posts);
+        vm.myPosts = res.data.filter(function(post) {
+          return post.author.email === authService.currentUser().email;
+        })
         vm.selectedPost = "";
       },
       function(err) {
@@ -123,7 +126,7 @@
 
     vm.showPost = function(post) {
       vm.selectedPost = post;
-      getTranslations(vm.selectedPost);
+      vm.getTranslations(vm.selectedPost);
     }
 
   }
