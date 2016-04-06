@@ -53,7 +53,7 @@
           // on success
           function(decodedToken) {
             $log.debug('Logged in!', decodedToken);
-            $state.go('profile');
+            $state.go('posts');
           },
           // on error
           function(err) {

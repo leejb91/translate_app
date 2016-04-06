@@ -57,7 +57,7 @@
     }
 
     function isLoggedIn() {
-      $log.debug('running is logged in')
+      $log.debug('running is logged in');
       return (token.retrieve() != null);
     }
 
