@@ -6,7 +6,7 @@
   </ul>
 
   <div ng-if="'posts' | isState">
-  <h1>T R A N S L A T E M E</h1>
+    <h1 class="translateme">T R A N S L A T E M E</h1>
 
   <ul class="filters-nav">
     <md-input-container ng-if="'posts' | isState">
@@ -42,7 +42,7 @@
               <li>{{ post.body }}</li>
               <li class="submittedby-p">Submitted by: {{ post.author.name }} about {{ vm.formatDate(post.createdAt) }}</li>
             </ul>
-          <div ng-click="vm.deletePost(post); $event.stopPropagation();" class="md-raised md-warn md-ink-ripple delete-button"><strong>DELETE</strong></div>
+          <div ng-if="post.author.email === vm.authService.currentUser().email" ng-click="vm.deletePost(post); $event.stopPropagation();" class="md-raised md-warn md-ink-ripple delete-button"><strong>DELETE</strong></div>
         </md-card>
       </div>
     </div>
