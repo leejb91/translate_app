@@ -36,14 +36,10 @@
     <div id="post-container">
       <div ng-repeat="post in vm.posts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">
         <md-card class="post-card card" ui-sref="posts.translation" ng-click="vm.showPost(post);">
-          <div class="language-div"><strong>{{ post.language }}</strong></div>
-          <ul>
-            <li>{{ post.skillLevel }}</li>
-            <li>{{ post.body }}</li>
-            <li>Submitted by: {{ post.author.name }}</li>
-            <li>Date: {{ vm.formatDate(post.createdAt) }}</li>
-            <!-- <li>Date: {{ post.createdAt | date: "MM/dd/yyyy" }}</li> -->
-          </ul>
+          <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
+          <div class="skill-div">{{ post.skillLevel }}</div>
+            <p>{{ post.body }}</p>
+            <p class="submittedby-p">Submitted by: {{ post.author.name }} {{ vm.formatDate(post.createdAt) }}</p>
           <div ng-click="vm.deletePost(post); $event.stopPropagation();" class="md-raised md-warn md-ink-ripple delete-button"><strong>DELETE</strong></div>
         </md-card>
       </div>

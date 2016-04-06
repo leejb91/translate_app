@@ -24,6 +24,11 @@
     vm.newTranslate = {};
     vm.translations = [];
 
+    vm.languageColor = {
+      KR: "red",
+      JP: "blue"
+    }
+
     vm.formatDate = function(date) {
       return moment(date).fromNow();
     };
