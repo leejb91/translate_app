@@ -18,13 +18,14 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+  <script src="/js/typer.js"></script>
 
 </head>
 <body>
   <div layout="column" id="indexNavbar" ng-controller="NavbarController as vm">
     <md-toolbar>
-      <div class="md-toolbar-tools">
-        <span>H O N E</span>
+      <div class="md-toolbar-tools toolbar">
+        <md-button ui-sref="welcome">H O N E</md-button>
         <!-- fill up the space between left and right area -->
         <span flex></span>
         <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="posts.myposts">My Posts</md-button>
