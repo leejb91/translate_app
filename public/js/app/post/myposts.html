@@ -1,14 +1,38 @@
+<h1>M Y P O S T S</h1>
+
+<div class="filters-nav">
+  <md-input-container>
+    <label>Language</label>
+    <md-select ng-model="vm.filter.language">
+      <md-option value="">See All</md-option>
+      <md-option value="EN">English</md-option>
+      <md-option value="KR">Korean</md-option>
+      <md-option value="SP">Spanish</md-option>
+      <md-option value="JP">Japanese</md-option>
+      <md-option value="DU">Dutch</md-option>
+      <md-option value="GR">German</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container>
+    <label>Skill Level</label>
+    <md-select ng-model="vm.filter.skillLevel">
+      <md-option value="">See All</md-option>
+      <md-option value="beginner">Beginner</md-option>
+      <md-option value="intermediate">Intermediate</md-option>
+      <md-option value="advanced">Advanced</md-option>
+    </md-select>
+  </md-input-container>
+</div>
+
 <div id="post-container">
-  <div ng-repeat="post in vm.posts | filter: { author: vm.authService.currentUser().name }"">
+  <div ng-repeat="post in vm.myPosts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">
     <md-card class="post-card card" ui-sref="posts.translation" ng-click="vm.showPost(post);">
-      <div class="language-div"><strong>{{ post.language }}</strong></div>
-      <ul>
-        <li>{{ post.skillLevel }}</li>
-        <li>{{ post.body }}</li>
-        <li>Submitted by: {{ post.author.name }}</li>
-        <li>Date: {{ vm.formatDate(post.createdAt) }}</li>
-        <!-- <li>Date: {{ post.createdAt | date: "MM/dd/yyyy" }}</li> -->
-      </ul>
+      <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
+      <div class="skill-div {{ post.skillLevel }}">{{ post.skillLevel }}</div>
+        <ul>
+          <li>{{ post.body }}</li>
+          <li class="submittedby-p">Submitted by: {{ post.author.name }} about {{ vm.formatDate(post.createdAt) }}</li>
+        </ul>
       <div ng-click="vm.deletePost(post); $event.stopPropagation();" class="md-raised md-warn md-ink-ripple delete-button"><strong>DELETE</strong></div>
     </md-card>
   </div>
