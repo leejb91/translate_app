@@ -20,6 +20,11 @@ html {
   min-width: 800px;
 }
 
+main.content {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
 body {
   font-family: "Philosopher", sans-serif;
   font-size: 18px;
@@ -77,27 +82,27 @@ form {
 }
 
 #indexNavbar {
-  background: #4d4d4d;
+  background: #4d4d4d !important;
   position: fixed;
   top: 0;
   z-index: 1;
+  width: 100%;
 }
 
-/*#about {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 70%;
-  margin: 20px auto;
-  background-color: rgba(248,248,255,0.8);
+.post-nav {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid;
 }
-*/
-.sign-in-form,
-.sign-up-form,
-.profile,
-#posts-page,
-#apost-page {
-  padding-top: 80px;
-  padding-bottom: 50px;
+
+.post-nav li {
+  padding-bottom: 5px;
+  display: table-cell;
+}
+
+.post-nav a {
+  color: black !important;
+  text-decoration: none;
 }
 
 #post-container {
@@ -109,21 +114,102 @@ form {
   align-content: flex-start;
 }
 
+#single-post-container {
+  padding-bottom: 20px;
+  padding-left: 100px;
+  padding-right: 60px;
+  padding-top: 35px;
+  width: 60%;
+  margin: 20px auto;
+  position: relative;
+  text-align: left;
+}
+
+.single-post-language {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: -40px;
+  top: 50px;
+  border: 3px solid whitesmoke;
+  font-size: 45px;
+  padding-top: 24px;
+  background-color: white;
+  text-align: center;
+}
+
+#create-post-card {
+  /*height: 400px;*/
+  width: 50%;
+  min-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+}
+
+.input-container {
+  width: 450px;
+}
+
+#login-card {
+  height: 300px;
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #white;
+}
+
+#signup-card {
+  height: 500px;
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #white;
+}
+
+#update-profile-card {
+  height: 500px;
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #white;
+}
+
 .post-card {
   height: 300px;
   width: 300px;
   margin: 15px !important;
-  padding: 10px;
-  background-color: #eef7fa;
+  padding: 20px;
+  background-color: white;
+  text-align: left;
+  position: relative;
 }
 
-.delete-post-button {
-  position: absolute;
-  height: 25px;
-  width: 25px;
+.language-div {
+  height: 40px;
+  width: 40px;
+  background-color: gray;
   border-radius: 50%;
-  background-color: #cc0000;
-  top: 0;
-  right: 0;
-  margin: -12px;
+  text-align: center;
+  padding-top: 10px;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+}
+
+.post-card ul,
+#single-post-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.delete-button {
+  bottom: 20px;
+  right: 20px;
+  border-radius: 2px;
+  position: absolute;
+  background-color: firebrick !important;
+  text-align: center;
+  padding: 10px;
+  color: white;
 }
