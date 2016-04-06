@@ -1,0 +1,34 @@
+[ui-view].ng-enter {
+  transition: all 1s ease;
+  opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.post-card.ng-enter {
+  animation: 0.8s appear;
+}
+
+.post-card.ng-leave {
+  animation: 0.8s disappear;
+}

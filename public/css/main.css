@@ -180,6 +180,7 @@ form {
   width: 300px;
   margin: 15px !important;
   padding: 20px;
+  padding-top: 40px;
   background-color: white;
   text-align: left;
   position: relative;
@@ -199,11 +200,11 @@ form {
 
 .skill-div {
   position: absolute;
-  top: -10px;
-  right: 50%;
+  top: 15px;
+  right: 15px;
   text-align: left;
   background: lightgray;
-  padding: 3px;
+  padding: 5px;
   border-radius: 3px;
 }
 
@@ -254,5 +255,18 @@ form {
 
 .GR {
   background: black;
+  color: white;
+}
+
+.beginner {
+  background: #FFD700;
+}
+
+.intermediate {
+  background: #ffb732;
+}
+
+.advanced {
+  background: #E50000;
   color: white;
 }
