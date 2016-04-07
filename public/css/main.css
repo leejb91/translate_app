@@ -227,6 +227,14 @@ form {
   position: relative;
 }
 
+.post-card-content {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+
 .language-div {
   height: 40px;
   width: 40px;
