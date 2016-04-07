@@ -12,7 +12,7 @@
     var vm = this;
     vm.authService = authService;
 
-    // Binding for Posts
+    // Initializing variables for posts
     vm.selectedPost       = {};
     vm.formOpen           = false;
     vm.posts              = [];
@@ -25,18 +25,13 @@
     vm.newTranslate = {};
     vm.translations = [];
 
-    vm.languageColor = {
-      KR: "red",
-      JP: "blue"
-    }
-
+    // MomentJS to transform date
     vm.formatDate = function(date) {
       return moment(date).fromNow();
     };
 
-    // Translation helper functions
+    // Translation functions
     vm.createTranslate = function() {
-      $log.info("trying to create a translate")
       var newTranslate = {
         body:   vm.newTranslate.body,
         author: authService.currentUser(),
@@ -47,7 +42,6 @@
         data:   newTranslate
       })
       .then(function(res) {
-        $log.info(res);
         vm.newTranslate = "";
         vm.getTranslations();
       });
@@ -66,8 +60,25 @@
       })
     }
 
+    vm.deleteTranslation = function(post, translation) {
+      $log.info("deleting translation", post._id, translation._id);
+      $http({
+        method: "DELETE",
+        url:    `api/posts/${post._id}/translations/${translation._id}`,
+        data:   { postId: post._id }
+      })
+      .then(function(res) {
+        $log.info("splicing the stuff??");
+        var index = vm.translations.indexOf(translation);
+        vm.translations.splice(index, 1);
+      },
+      function(err) {
+        $log.debug(err);
+      })
+    }
 
-    // Post helper functions
+
+    // Post functions
     vm.createPost = function() {
       var newPost = {
         body:       vm.newPost.body,
