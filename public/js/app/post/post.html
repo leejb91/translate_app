@@ -36,10 +36,10 @@
     <div id="post-container">
       <div ng-repeat="post in vm.posts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">
         <md-card class="post-card card" ui-sref="posts.translation" ng-click="vm.showPost(post);">
-          <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
-          <div class="skill-div {{ post.skillLevel }}">{{ post.skillLevel }}</div>
+            <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
+            <div class="skill-div {{ post.skillLevel }}">{{ post.skillLevel }}</div>
             <ul>
-              <li>{{ post.body }}</li>
+              <li class="post-card-content">{{ post.body }}</li>
               <li class="submittedby-p">Submitted by: {{ post.author.name }} about {{ vm.formatDate(post.createdAt) }}</li>
             </ul>
           <div ng-if="post.author.email === vm.authService.currentUser().email" ng-click="vm.deletePost(post); $event.stopPropagation();" class="md-raised md-warn md-ink-ripple delete-button"><strong>DELETE</strong></div>
