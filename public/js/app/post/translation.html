@@ -12,7 +12,7 @@
   <div>
     <ul class="translation-ul" ng-repeat="translation in vm.translations">
       <li class="translation-li-body">{{translation.body}}</li>
-      <li class="submittedby-p">Submitted by: {{ vm.selectedPost.author.name }} about {{ vm.formatDate(vm.selectedPost.createdAt) }}</li>
+      <li class="submittedby-p">Submitted by: {{ vm.selectedPost.author.name }} about {{ vm.formatDate(vm.selectedPost.createdAt) }} <span ng-click="vm.deleteTranslation(vm.selectedPost, translation);">delete</span></li>
     </ul>
   </div>
 
