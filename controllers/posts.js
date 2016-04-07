@@ -45,13 +45,9 @@ function destroy(req, res, next) {
   var id = req.params.id;
 
   Post.remove({ _id: id }, function(err) {
-    if (err) {
-      res.send(err);
-    };
+    if (err) { res.send(err); };
   })
   .then(function(post) {
-    res.json({
-      success: "yay"
-    })
+    res.json({ success: "success" })
   })
 }
