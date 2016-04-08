@@ -93,7 +93,7 @@
       .then(function(res) {
         vm.getPosts();
         vm.formOpen = !vm.formOpen;
-        $state.go("posts");
+        $state.go("posts.all");
       },
       function(err) {
         $log.debug("Error: ", err);

@@ -1,6 +1,6 @@
-<h1>M Y P O S T S</h1>
+<h1 class="translateme">M Y P O S T S</h1>
 
-<div class="filters-nav">
+<ul class="filters-nav">
   <md-input-container>
     <label>Language</label>
     <md-select ng-model="vm.filter.language">
@@ -22,7 +22,7 @@
       <md-option value="advanced">Advanced</md-option>
     </md-select>
   </md-input-container>
-</div>
+</ul>
 
 <div id="post-container">
   <div ng-repeat="post in vm.myPosts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">

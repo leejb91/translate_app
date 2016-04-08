@@ -41,7 +41,7 @@
           // on error
           function(err) {
             if (err.status === 409) vm.conflict = true;
-            $log.debug('Error Claire-r:', err);
+            $log.debug('Error:', err);
           }
         );
     }
@@ -53,7 +53,7 @@
           // on success
           function(decodedToken) {
             $log.debug('Logged in!', decodedToken);
-            $state.go('posts');
+            $state.go('posts.all');
           },
           // on error
           function(err) {

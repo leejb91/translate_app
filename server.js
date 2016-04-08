@@ -47,7 +47,8 @@ app.use(bodyParser.json());
 app.use(debugReq);
 
 // Validate content-type.
-app.use(validateContentType);
+// app.use(validateContentType);
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Our routes.
 app.use('/api', routes);

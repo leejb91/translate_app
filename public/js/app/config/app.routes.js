@@ -33,6 +33,14 @@
         controllerAs: "vm",
         authorized:   true
       })
+      .state("posts.all", {
+        url:          "/all",
+        templateUrl: "/js/app/post/posts.all.html"
+      })
+      .state("posts.myposts", {
+        url:          "/myposts",
+        templateUrl: "/js/app/post/myposts.html"
+      })
       .state("posts.translation", {
         url:          "/translation",
         templateUrl: "/js/app/post/translation.html"
@@ -40,10 +48,6 @@
       .state("posts.submit", {
         url:          "/submit",
         templateUrl: "/js/app/post/submit.html"
-      })
-      .state("posts.myposts", {
-        url:          "/myposts",
-        templateUrl: "/js/app/post/myposts.html"
       });
 
     $urlRouterProvider.otherwise("/");

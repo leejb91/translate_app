@@ -1,52 +1,8 @@
 <div id="posts-page">
 
   <ul class="post-nav">
-    <li><a ui-sref="posts">Translate Everything!</a></li>
+    <li><a ui-sref="posts.all">Translate Everything!</a></li>
     <li><a ui-sref="posts.submit">Submit a Post!</a></li>
   </ul>
-
-  <div ng-if="'posts' | isState">
-    <h1 class="translateme">T R A N S L A T E M E</h1>
-
-  <ul class="filters-nav">
-    <md-input-container ng-if="'posts' | isState">
-      <label>Language</label>
-      <md-select ng-model="vm.filter.language">
-        <md-option value="">See All</md-option>
-        <md-option value="EN">English</md-option>
-        <md-option value="KR">Korean</md-option>
-        <md-option value="SP">Spanish</md-option>
-        <md-option value="JP">Japanese</md-option>
-        <md-option value="DU">Dutch</md-option>
-        <md-option value="GR">German</md-option>
-      </md-select>
-    </md-input-container>
-    <md-input-container ng-if="'posts' | isState">
-      <label>Skill Level</label>
-      <md-select ng-model="vm.filter.skillLevel">
-        <md-option value="">See All</md-option>
-        <md-option value="beginner">Beginner</md-option>
-        <md-option value="intermediate">Intermediate</md-option>
-        <md-option value="advanced">Advanced</md-option>
-      </md-select>
-    </md-input-container>
-  </ul>
-
-  <!-- ng repeat of all the posts -->
-    <div id="post-container">
-      <div ng-repeat="post in vm.posts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">
-        <md-card class="post-card card" ui-sref="posts.translation" ng-click="vm.showPost(post);">
-            <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
-            <div class="skill-div {{ post.skillLevel }}">{{ post.skillLevel }}</div>
-            <ul>
-              <li class="post-card-content">{{ post.body }}</li>
-              <li class="submittedby-p">Submitted by: {{ post.author.name }} about {{ vm.formatDate(post.createdAt) }}</li>
-            </ul>
-          <div ng-if="post.author.email === vm.authService.currentUser().email" ng-click="vm.deletePost(post); $event.stopPropagation();" class="md-raised md-warn md-ink-ripple delete-button"><strong>DELETE</strong></div>
-        </md-card>
-      </div>
-    </div>
-  </div>
-</div>
 
 <main ui-view></main>

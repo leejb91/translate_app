@@ -326,3 +326,10 @@ ul {
   background: #E50000;
   color: white;
 }
+
+[role="button"] {
+  cursor: pointer;
+}
+
+[role="button"].favorite { color: cyan; }
+[role="button"].delete { color: red; }
