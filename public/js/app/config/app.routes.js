@@ -42,8 +42,10 @@
         templateUrl: "/js/app/post/myposts.html"
       })
       .state("posts.translation", {
-        url:          "/translation",
-        templateUrl: "/js/app/post/translation.html"
+        url:          "/:id",
+        templateUrl: "/js/app/post/translation.html",
+        controller:  "TranslationController",
+        controllerAs: "vm"
       })
       .state("posts.submit", {
         url:          "/submit",

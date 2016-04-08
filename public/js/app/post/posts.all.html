@@ -1,7 +1,7 @@
 <h1 class="translateme">T R A N S L A T E M E</h1>
 
 <ul class="filters-nav">
-  <md-input-container ng-if="'posts' | isState">
+  <md-input-container>
     <label>Language</label>
     <md-select ng-model="vm.filter.language">
       <md-option value="">See All</md-option>
@@ -13,7 +13,7 @@
       <md-option value="GR">German</md-option>
     </md-select>
   </md-input-container>
-  <md-input-container ng-if="'posts' | isState">
+  <md-input-container>
     <label>Skill Level</label>
     <md-select ng-model="vm.filter.skillLevel">
       <md-option value="">See All</md-option>
@@ -27,7 +27,7 @@
 <!-- ng repeat of all the posts -->
   <div id="post-container">
     <div ng-repeat="post in vm.posts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">
-      <md-card class="post-card card" ui-sref="posts.translation" ng-click="vm.showPost(post);">
+      <md-card class="post-card card" ui-sref="posts.translation({id: post._id})" ng-click="vm.showPost(post);">
           <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
           <div class="skill-div {{ post.skillLevel }}">{{ post.skillLevel }}</div>
           <ul>

@@ -26,7 +26,7 @@
 
 <div id="post-container">
   <div ng-repeat="post in vm.myPosts | filter: { language: vm.filter.language, skillLevel: vm.filter.skillLevel }">
-    <md-card class="post-card card" ui-sref="posts.translation" ng-click="vm.showPost(post);">
+    <md-card class="post-card card" ui-sref="posts.translation({id: post._id})" ng-click="vm.showPost(post);">
       <div class="language-div {{ post.language }}"><strong>{{ post.language }}</strong></div>
       <div class="skill-div {{ post.skillLevel }}">{{ post.skillLevel }}</div>
         <ul>

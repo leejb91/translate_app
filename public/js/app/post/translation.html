@@ -1,19 +1,19 @@
 <!-- single post revealed when clicked -->
 <h2>T R A N S L A T E T H I S</h2>
 <md-card id="single-post-container">
-    <div class="single-post-language {{ vm.selectedPost.language }}">{{ vm.selectedPost.language }}</div>
-    <!-- <span class="skill-div-in-translation {{vm.selectedPost.skillLevel}}">{{ vm.selectedPost.skillLevel }}</span> -->
+    <div class="single-post-language {{ vm.post.language }}">{{ vm.post.language }}</div>
+    <!-- <span class="skill-div-in-translation {{vm.post.skillLevel}}">{{ vm.post.skillLevel }}</span> -->
   <ul>
-    <li>{{ vm.selectedPost.body }}</li>
+    <li>{{ vm.post.body }}</li>
     <br>
-    <li class="submittedby-p">Submitted by: {{ vm.selectedPost.author.name }} about {{ vm.formatDate(vm.selectedPost.createdAt) }}</li>
+    <li class="submittedby-p">Submitted by: {{ vm.post.author.name }} about {{ vm.formatDate(vm.post.createdAt) }}</li>
   </ul>
 
   <h4>T R A N S L A T I O N S</h4>
   <div>
-    <ul class="translation-ul" ng-repeat="translation in vm.translations">
+    <ul class="translation-ul" ng-repeat="translation in vm.post.translations">
       <li class="translation-li-body">{{translation.body}}</li>
-      <li class="submittedby-p">Submitted by: {{ vm.selectedPost.author.name }} about {{ vm.formatDate(translation.createdAt) }} | <span class="favorite" ng-click="vm.favoriteTranslation(translation)">favorite</span> | <span class="delete" ng-click="vm.deleteTranslation(vm.selectedPost, translation);">delete</span></li>
+      <li class="submittedby-p">Submitted by: {{ vm.post.author.name }} about {{ vm.formatDate(translation.createdAt) }} | <span class="favorite" ng-click="vm.favoriteTranslation(translation)">favorite</span> | <span class="delete" ng-click="vm.deleteTranslation(vm.post, translation);">delete</span></li>
     </ul>
   </div>
 
