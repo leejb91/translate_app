@@ -87,22 +87,16 @@ form {
 }
 
 #about-div {
-  position: relative;
-  height: 460px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#world-img {
-  display: inline-block;
-  position: absolute;
-  left: 50px;
-  top: -15px;
-}
-
-.about.row {
-  display: inline-block;
-  position: absolute;
+.about-info {
   text-align: left;
-  top: 85px;
+  max-width: 500px;
+  padding-right: 50px;
 }
 
 #more-info {
@@ -252,7 +246,6 @@ form {
   top: 15px;
   right: 15px;
   text-align: left;
-  background: lightgray;
   padding: 5px;
   border-radius: 3px;
 }
@@ -262,8 +255,7 @@ form {
   color: gray;
 }
 
-.post-card ul,
-#single-post-container ul {
+ul {
   list-style: none;
   padding-left: 0;
 }
