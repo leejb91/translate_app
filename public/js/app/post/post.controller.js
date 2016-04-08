@@ -77,7 +77,6 @@
       })
     }
 
-
     // Post functions
     vm.createPost = function() {
       var newPost = {
