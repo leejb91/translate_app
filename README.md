@@ -7,7 +7,7 @@ HONE stems from the issue of sending a refined email or any written corresponden
 
 * [https://trello.com/b/oGJuKuwJ/project-4-hone](https://trello.com/b/oGJuKuwJ/project-4-hone)
 * [https://github.com/leejb91/translate_app](https://github.com/leejb91/translate_app)
-* need a link to the hosted website
+* [https://gentle-fortress-79303.herokuapp.com/](https://gentle-fortress-79303.herokuapp.com/)
 
 ###Technologies
 * MEAN Stack
