@@ -41,16 +41,17 @@
         url:          "/myposts",
         templateUrl: "/js/app/post/myposts.html"
       })
+      .state("posts.submit", {
+        url:         "/submit",
+        templateUrl: "/js/app/post/submit.html"
+      })
       .state("posts.translation", {
         url:          "/:id",
         templateUrl: "/js/app/post/translation.html",
         controller:  "TranslationController",
         controllerAs: "vm"
       })
-      .state("posts.submit", {
-        url:          "/submit",
-        templateUrl: "/js/app/post/submit.html"
-      });
+      ;
 
     $urlRouterProvider.otherwise("/");
   }
