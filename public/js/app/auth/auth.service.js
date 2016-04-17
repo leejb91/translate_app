@@ -36,10 +36,6 @@
       var tokenData = token.decode();
 
       if (tokenData) {
-        // No real reason to do this, just showing you
-        // how it can be done. We can clean out (remove)
-        // properties from the token that are about the token
-        // itself, not the user; this cleans up the data.
         tokenData.expiresAt = Date(tokenData.exp);
 
         delete tokenData.exp;
@@ -68,16 +64,10 @@
         data:   data
       })
       .then(
-        // if the request succeeded, then run this
-        // handler, and pass on the decoded token.
         function(res) {
           token.store(res.data.token);
           return token.decode();
         }
-        // since there is no error handler, pass
-        // an error on to the next promise, without
-        // calling the above success handler
-        // , function(err) { null; }
       );
 
       return promise;

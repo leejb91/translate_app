@@ -11,17 +11,7 @@
     var vm = this;
 
     // BINDINGS
-    // vm.signUp = {
-    //   email:    "jbl1@ga.com",
-    //   name:     "Jerry Lee",
-    //   password: "12345",
-    //   passwordConfirmation: "12345"
-    // };
     vm.submitSignUp = submitSignUp;
-    // vm.logIn = {
-    //   email:    "jbl1@ga.com",
-    //   password: "12345"
-    // };
     vm.submitLogIn = submitLogIn;
     vm.conflict = false;
 
