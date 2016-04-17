@@ -25,9 +25,9 @@ router.delete('/posts/:id', postsCtrl.destroy);
 
 
 // translations resource paths:
-router.get('/posts/:id/translations',              transCtrl.index);
-router.post('/posts/:id/translations',             transCtrl.create);
-router.put('/posts/:id/translations/:trans_id',    transCtrl.update);
+router.get(   '/posts/:id/translations',           transCtrl.index);
+router.post(  '/posts/:id/translations',           transCtrl.create);
+router.put(   '/posts/:id/translations/:trans_id', transCtrl.update);
 router.delete('/posts/:id/translations/:trans_id', transCtrl.destroy);
 
 module.exports = router;
