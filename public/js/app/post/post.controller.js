@@ -13,6 +13,7 @@
     vm.authService = authService;
 
     // Initializing variables for posts
+    // vm.selectedPost       = {};
     vm.formOpen           = false;
     vm.posts              = [];
     vm.myPosts            = [];
@@ -63,6 +64,7 @@
         vm.myPosts = res.data.filter(function(post) {
           return post.author.email === authService.currentUser().email;
         })
+        // vm.selectedPost = "";
       },
       function(err) {
         $log.info("Error: ", err);
@@ -84,5 +86,10 @@
         $log.debug(err);
       })
     }
+
+    // vm.showPost = function(post) {
+    //   vm.selectedPost = post;
+    //   vm.getTranslations(vm.selectedPost);
+    // }
   }
 })();

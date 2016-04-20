@@ -58,5 +58,3 @@ Other features that would be incorporated would include the following:
 * voting system to display the best translations at the top
 * favorite button for the poster to choose the best response
 * after a response has been favorited, the post will be shown as "answered"
-
-###Issues during development
