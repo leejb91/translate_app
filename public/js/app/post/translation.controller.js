@@ -8,7 +8,7 @@
   TranslationController.$inject = ["$log", "authService", "$http", "$state", "$stateParams"];
 
   function TranslationController($log, authService, $http, $state, $stateParams) {
-    $log.info("TranslationController loaded:", $stateParams);
+    $log.info("TranslationController loaded:");
     var vm = this;
 
     getPost($stateParams.id);
@@ -32,10 +32,11 @@
     function getPost(id) {
       $http({
         method: "GET",
-        url:    `api/posts/${id}`
+        url:    `api/posts/${id}/translations`
       })
       .then(function(res) {
-        vm.post = res.data
+        vm.post = res.data;
+        $log.info("vm.post", vm.post)
       },
       function(err) {
         $log.info("Error: ", err);
@@ -52,9 +53,12 @@
         url:    `/api/posts/${$stateParams.id}/translations`,
         data:   newTranslate
       })
-      .then(function(res) {
+      .then(getPost($stateParams.id))
+      .then(
+        function(res) {
+        $log.info("hello", res.data);
         vm.newTranslate = "";
-        vm.post = res.data;
+        // vm.post = res.data;
       });
     }
 

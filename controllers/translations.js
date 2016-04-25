@@ -2,20 +2,21 @@ var Post = require("../models/post");
 var User = require("../models/user");
 
 module.exports = {
-  index:   index,
+  show:    show,
   create:  create,
   update:  update,
   destroy: destroy
 };
 
-function index(req, res) {
-  Post.find({}).populate("author").exec()
-    .then(function(posts) {
-      // console.log(posts);
-      res.json(posts);
-    }, function(err) {
-      if (err) res.json({ message: "No posts" });
-    });
+function show(req, res) {
+  Post.findById(req.params.id)
+      .populate("author translations.author").exec()
+        .then(function(post) {
+          console.log("show", post);
+          res.json(post);
+        }, function(err) {
+          if (err) res.json({ message: "No post" });
+        })
 }
 
 function create(req, res, next) {
