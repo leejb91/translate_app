@@ -9,17 +9,16 @@ module.exports = {
 };
 
 function index(req, res) {
-  Post.findById(req.params.id, function(err, post) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(post);
-    }
-  });
+  Post.find({}).populate("author").exec()
+    .then(function(posts) {
+      // console.log(posts);
+      res.json(posts);
+    }, function(err) {
+      if (err) res.json({ message: "No posts" });
+    });
 }
 
 function create(req, res, next) {
-  console.log("creating translation in backend", req.body);
   Post.findById(req.params.id, function(err, post) {
     if (err) {
       res.send(err);
@@ -42,7 +41,6 @@ function update(req, res, next) {
       res.send(err);
     } else {
       var trans = post.translations.id(req.params.trans_id);
-      console.log("Check the bod: ", req.body)
 
       if (req.body.favorited !== undefined) trans.favorited = req.body.favorited;
       if (req.body.body      !== undefined) trans.body      = req.body.body;

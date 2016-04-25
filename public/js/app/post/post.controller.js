@@ -60,11 +60,10 @@
         url:    "api/posts"
       })
       .then(function(res) {
-        vm.posts = res.data.reverse();
+        vm.posts   = res.data.reverse();
         vm.myPosts = res.data.filter(function(post) {
           return post.author.email === authService.currentUser().email;
         })
-        // vm.selectedPost = "";
       },
       function(err) {
         $log.info("Error: ", err);
@@ -87,9 +86,5 @@
       })
     }
 
-    // vm.showPost = function(post) {
-    //   vm.selectedPost = post;
-    //   vm.getTranslations(vm.selectedPost);
-    // }
   }
 })();

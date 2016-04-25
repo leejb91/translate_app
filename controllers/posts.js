@@ -18,13 +18,23 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  var id = req.params.id;
-  Post.findById(id, function(err, post) {
-    console.log("show", id)
-    if (err) res.json({ message: "Post not found because " + err });
-    res.json(post)
-  })
+  Post.findById(req.params.id)
+      .populate("author").exec()
+        .then(function(post) {
+          console.log("show", post);
+          res.json(post);
+        }, function(err) {
+          if (err) res.json({ message: "No post" });
+        })
 }
+
+// function show(req, res) {
+//   Post.findById(req.params.id, function(err, post) {
+//     console.log("show", req.params.id);
+//     if (err) res.json({ message: "Post not found because " + err });
+//     res.json(post)
+//   })
+// }
 
 function create(req, res, next) {
   Post
