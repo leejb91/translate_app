@@ -35,8 +35,8 @@
         url:    `api/posts/${id}/translations`
       })
       .then(function(res) {
+        $log.info("res in getpost", res.data)
         vm.post = res.data;
-        $log.info("vm.post", vm.post)
       },
       function(err) {
         $log.info("Error: ", err);
@@ -53,24 +53,20 @@
         url:    `/api/posts/${$stateParams.id}/translations`,
         data:   newTranslate
       })
-      .then(getPost($stateParams.id))
-      .then(
-        function(res) {
-        $log.info("hello", res.data);
-        vm.newTranslate = "";
-        // vm.post = res.data;
-      });
+      .then(function(res) {
+        $log.info("res in createTranslate", res.data);
+        vm.newTranslate = {};
+        vm.post = res.data;
+      }, function(err) { $log.info(err); })
     }
 
     function deleteTranslation(post, translation) {
-      $log.info("deleting translation", post._id, translation._id);
       $http({
         method: "DELETE",
         url:    `api/posts/${post._id}/translations/${translation._id}`,
         data:   { postId: post._id }
       })
       .then(function(res) {
-        $log.info("splicing the stuff??");
         var index = vm.post.translations.indexOf(translation);
         vm.post.translations.splice(index, 1);
       },

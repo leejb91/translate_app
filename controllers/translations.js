@@ -12,7 +12,6 @@ function show(req, res) {
   Post.findById(req.params.id)
       .populate("author translations.author").exec()
         .then(function(post) {
-          console.log("show", post);
           res.json(post);
         }, function(err) {
           if (err) res.json({ message: "No post" });
@@ -20,20 +19,18 @@ function show(req, res) {
 }
 
 function create(req, res, next) {
-  Post.findById(req.params.id, function(err, post) {
-    if (err) {
-      res.send(err);
-    } else {
-      var newTranslate = {
-        author:    req.body.author,
-        body:      req.body.body
-      };
-      post.translations.push(newTranslate);
-      post.save(function(err, success) {
-        res.send(post);
-      });
-    }
-  })
+  Post.findById(req.params.id)
+      .populate("author translations.author").exec()
+      .then(function(post) {
+        var newTranslate = {
+          author:    req.body.author,
+          body:      req.body.body
+        };
+        post.translations.push(newTranslate);
+        post.save(function(err, success) {
+          res.send(post);
+        });
+      })
 }
 
 function update(req, res, next) {
