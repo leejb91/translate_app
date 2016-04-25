@@ -35,7 +35,6 @@
         url:    `api/posts/${id}/translations`
       })
       .then(function(res) {
-        $log.info("res in getpost", res.data)
         vm.post = res.data;
       },
       function(err) {
@@ -54,7 +53,6 @@
         data:   newTranslate
       })
       .then(function(res) {
-        $log.info("res in createTranslate", res.data);
         vm.newTranslate = {};
         vm.post = res.data;
       }, function(err) { $log.info(err); })

@@ -29,7 +29,7 @@
         <!-- fill up the space between left and right area -->
         <span flex></span>
         <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="posts.myposts">My Posts</md-button>
-        <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="posts.all">Translate</md-button>
+        <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="posts.all">All Posts</md-button>
         <md-button ng-show="vm.authService.isLoggedIn();" ui-sref="profile">Profile</md-button>
         <md-button ng-show="vm.authService.isLoggedIn();" ng-click="vm.logOut();">Log Out</md-button>
         <md-button ng-hide="vm.authService.isLoggedIn();" ui-sref="signin">Log In</md-button>
