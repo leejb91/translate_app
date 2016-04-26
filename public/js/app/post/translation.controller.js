@@ -21,6 +21,7 @@
     // Binding for Translations
     vm.newTranslate = {};
     vm.createTranslate   = createTranslate;
+    vm.favoriteTranslation   = favoriteTranslation;
     vm.deleteTranslation = deleteTranslation;
 
     // MomentJS to transform date
@@ -56,6 +57,26 @@
         vm.newTranslate = {};
         vm.post = res.data;
       }, function(err) { $log.info(err); })
+    }
+
+    function favoriteTranslation(translation) {
+      $http({
+        method: "PUT",
+        url:    `api/posts/${$stateParams.id}/translations/${translation._id}`,
+        data:   {
+          favorited: !translation.favorited
+        }
+      })
+      .then(function(res) {
+        var fav = !translation.favorited;
+        vm.post.translations.forEach(function(translate) {
+          translate.favorited = false;
+          $log.info(translate.favorited);
+        });
+        translation.favorited = fav;
+        $log.info("translation", res.data)
+        $log.info("translations", vm.post.translations)
+      })
     }
 
     function deleteTranslation(post, translation) {

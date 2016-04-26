@@ -39,13 +39,15 @@ function update(req, res, next) {
       res.send(err);
     } else {
       var trans = post.translations.id(req.params.trans_id);
-
-      if (req.body.favorited !== undefined) trans.favorited = req.body.favorited;
-      if (req.body.body      !== undefined) trans.body      = req.body.body;
-
-
+      if (req.body.favorited !== undefined) {
+        post.translations.forEach(function(transl) {
+          transl.favorited = false;
+        });
+        trans.favorited = req.body.favorited;
+      }
+      // if (req.body.body      !== undefined) trans.body      = req.body.body;
       post.save(function(err, post) {
-        res.json({data: post, message: "translation updated!"});
+        res.json(post);
       })
     }
   });
