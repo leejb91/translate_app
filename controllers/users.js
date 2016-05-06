@@ -50,20 +50,9 @@ function update(req, res, next) {
   User
     .findById(req.decoded._id).exec()
     .then(function(user) {
-      // Since empty values can be sent, we use the below code instead
-      // of user.update(…); user.update() would save any empty values
-      // passed in to the database!
-      //
-      // Also, mongoose-bcrypt sets the password as a digest only when
-      // .save()-ing, not when .update()-ing! Ridiculous!
       if (req.body.email)    user.email    = req.body.email;
       if (req.body.name)     user.name     = req.body.name;
       if (req.body.password) user.password = req.body.password;
-
-      // The same thing, but sexier:
-      // for (var field in req.body) {
-        // if (field) user[field] = req.body[field];
-      // }
 
       return user.save();
     })

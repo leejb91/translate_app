@@ -21,7 +21,6 @@ function show(req, res) {
   Post.findById(req.params.id)
       .populate("author").exec()
         .then(function(post) {
-          // console.log("show", post);
           res.json(post);
         }, function(err) {
           if (err) res.json({ message: "No post" });
